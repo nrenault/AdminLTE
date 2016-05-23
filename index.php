@@ -377,7 +377,7 @@ if (isset($_GET['page'])) {
         </li>
         <?php if ($module == "ecommerce") { echo "<li class='active treeview'>"; } else { echo "<li class='treeview'>"; } ?>
           <a href="#">
-            <i class="fa fa-amazon"></i> <span>E-Commerce</span>
+            <i class="fa fa-barcode"></i> <span>E-Commerce</span>
             <i class="fa fa-angle-left pull-right"></i>
           </a>
           <ul class="treeview-menu">
@@ -636,7 +636,7 @@ if (isset($_GET['page'])) {
   $.widget.bridge('uibutton', $.ui.button);
 </script>
 <!-- Bootstrap 3.3.6 -->
-<script src="bootstrap/js/bootstrap.min.js"></script>
+<script src="bootstrap/js/bootstrap.js"></script>
 <!-- Morris.js charts -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
 <script src="plugins/morris/morris.min.js"></script>
