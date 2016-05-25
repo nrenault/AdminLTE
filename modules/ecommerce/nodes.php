@@ -1,21 +1,80 @@
 <script type="text/javascript">
-
+function confirmDesactivateModal(id){
+$('#desactivateModal').modal();
+$('#desactivateButton').html('<a class="btn btn-danger" onclick="desactivateData('+id+')">Desactivate</a>');
+}
+function desactivateData(id){
+// do your stuffs with id
+$.ajax(
+{
+       type: "GET",
+       url: "/admin/modules/desactivate.php?module=nodes&id="+id+"",
+       success: function()
+       {
+        parent.fadeOut('slow', function() {$(this).remove();});
+       }
+ });
+$("#successMessage").html("Record With id "+id+" Desactivate successfully!");
+$('#desactivateModal').modal('hide');
+setTimeout(function() { location.reload(); }, 3000);
+}
+function confirmActivateModal(id){
+$('#activateModal').modal();
+$('#activateButton').html('<a class="btn btn-danger" onclick="activateData('+id+')">Activate</a>');
+}
+function activateData(id){
+$.ajax(
+{
+       type: "GET",
+       url: "/admin/modules/activate.php?module=nodes&id="+id+"",
+       success: function()
+       {
+        parent.fadeOut('slow', function() {$(this).remove();});
+       }
+ });
+$("#successMessage").html("Record With id "+id+" activate successfully!");
+$('#activateModal').modal('hide');
+setTimeout(function() { location.reload(); }, 3000);
+}
 function confirmDeleteModal(id){
-  $('#deleteModal').modal();
+$('#deleteModal').modal();
 $('#deleteButton').html('<a class="btn btn-danger" onclick="deleteData('+id+')">Delete</a>');
 }
 function deleteData(id){
-// do your stuffs with id
+$.ajax(
+{
+       type: "GET",
+       url: "/admin/modules/delete.php?module=nodes&id="+id+"",
+       success: function()
+       {
+        parent.fadeOut('slow', function() {$(this).remove();});
+       }
+ });
 $("#successMessage").html("Record With id "+id+" Deleted successfully!");
-$('#deleteModal').modal('hide'); // now close modal
+$('#deleteModal').modal('hide');
+setTimeout(function() { location.reload(); }, 3000);
+}
+function addCat(form) {
+    //TestVar =form.inputbox.value;
+    id =form.cat_id.value;
+    name =form.cat_name.value;
+    lang =form.cat_lang.value;
+    status =form.cat_status.value;
+    $.ajax(
+    {
+           type: "GET",
+           url: "/admin/modules/add.php?module=nodes&id="+id+"&name="+name+"&lang="+lang+"&status="+status+"",
+           success: function()
+           {
+            parent.fadeOut('slow', function() {$(this).remove();});
+           }
+     });
+     setTimeout(function() { location.reload(); }, 3000);
 }
 </script>
 <!-- Content Header (Page header) -->
 <section class="content-header">
-  <h1>
-    Data Tables
-    <small>advanced tables</small>
-  </h1>
+  <h1>Categories</h1><br><div id="successMessage" style="font-size:15px;color:green;font-weight:bold;"></div>
   <ol class="breadcrumb">
     <li><a href="index.php"><i class="fa fa-dashboard"></i> Home</a></li>
     <li><a href="#">E-Commerce</a></li>
@@ -27,6 +86,40 @@ $('#deleteModal').modal('hide'); // now close modal
 <section class="content">
   <div class="row">
     <div class="col-xs-6">
+      <div id='desactivateModal' class='modal fade' role='dialog'>
+        <div class='modal-dialog'>
+          <div class='modal-content'>
+            <div class='modal-header'>
+              <button type='button' class='close' data-dismiss='modal' aria-hidden='true'>×</button>
+              <h4 class='modal-title'>Desactivate </h4>
+            </div>
+            <div class='modal-body'>
+              <p>Do You Really Want to Desactivate This ?</p>
+            </div>
+            <div class='modal-footer'>
+              <button type='button' class='btn btn-default' data-dismiss='modal'>Cancel</button>
+                  <span id= 'desactivateButton'></span>
+              </div>
+          </div>
+        </div>
+      </div>
+      <div id='activateModal' class='modal fade' role='dialog'>
+        <div class='modal-dialog'>
+          <div class='modal-content'>
+            <div class='modal-header'>
+              <button type='button' class='close' data-dismiss='modal' aria-hidden='true'>×</button>
+              <h4 class='modal-title'>Activate </h4>
+            </div>
+            <div class='modal-body'>
+              <p>Do You Really Want to Activate This ?</p>
+            </div>
+            <div class='modal-footer'>
+              <button type='button' class='btn btn-default' data-dismiss='modal'>Cancel</button>
+                  <span id= 'activateButton'></span>
+              </div>
+          </div>
+        </div>
+      </div>
       <div id='deleteModal' class='modal fade' role='dialog'>
         <div class='modal-dialog'>
           <div class='modal-content'>
@@ -79,15 +172,19 @@ $('#deleteModal').modal('hide'); // now close modal
                   echo $node_lang;
                   echo "</td><td>";
                   echo $node_products - 1;
-                  echo "</td><td>";
-                  if ($node_status = "1") {
+                  echo "</td><td align='center'>";
+                  if ($node_status == "1") {
                     echo "<font color='green'><span class='glyphicon glyphicon-ok-circle' aria-hidden='true'></span></font>";
                     echo "</td><td>";
-                    echo "<button type='button' class='btn btn-xs btn-warning'><i class='fa fa-ban'></i> Desactivate</button>";
+                    $confirm_desactivate = "confirmDesactivateModal('".$node_id."')";
+                    echo '<button type="button" class="btn btn-xs btn-warning" onclick="'.$confirm_desactivate.'"><i class="fa fa-ban"></i> Desactivate</button>';
+                    //echo "<button type='button' class='btn btn-xs btn-warning'><i class='fa fa-ban'></i> Desactivate</button>";
                   } else {
                     echo "<font color='red'><span class='glyphicon glyphicon-ban-circle' aria-hidden='true'></span></font>";
                     echo "</td><td>";
-                    echo "<button type='button' class='btn btn-xs btn-success'><i class='fa fa-check'></i> Activate</button>";
+                    $confirm_activate = "confirmActivateModal('".$node_id."')";
+                    echo '<button type="button" class="btn btn-xs btn-success" onclick="'.$confirm_activate.'"><i class="fa fa-check"></i> Activate</button>';
+                    //echo "<button type='button' class='btn btn-xs btn-success'><i class='fa fa-check'></i> Activate</button>";
                   }
                   $confirm_delete = "confirmDeleteModal('".$node_id."')";
                   echo "&nbsp;&nbsp;";
@@ -98,7 +195,7 @@ $('#deleteModal').modal('hide'); // now close modal
 
                   // echo "<button class='btn btn-default' data-href=''/delete.php?id=54' data-toggle='modal' data-target='#confirm-delete'>Delete record #54</button>";
                   // echo "<script>$('[data-toggle='confirmation']').confirmation({ href: function(elem){ return $(elem).attr('href'); } });</script><a data-href='http://google.com' class='btn' data-toggle='confirmation'>Confirmation</a>";
-                  echo '<button type="button" class="btn btn-xs btn-danger" onclick="'.$confirm_delete.'"><i class="glyphicon glyphicon-remove"></i> Delete</button><br><div id="successMessage" style="font-size:20px;color:green;font-weight:bold;"></div>';
+                  echo '<button type="button" class="btn btn-xs btn-danger" onclick="'.$confirm_delete.'"><i class="glyphicon glyphicon-remove"></i> Delete</button>';
                   // echo "<button type='button' class='btn btn-xs btn-danger' type='submit' data-toggle='modal' data-target='#confirmDelete' data-title='Delete User' data-message='Are you sure you want to delete this user ?'><i class='fa fa-remove'></i> Remove</button>";
                   echo "</td><tr>";
               }
@@ -116,6 +213,7 @@ $('#deleteModal').modal('hide'); // now close modal
             </tfoot>
           </table>
         </div>
+
         <!-- /.box-body -->
       </div>
       <!-- /.box -->
@@ -129,7 +227,7 @@ $('#deleteModal').modal('hide'); // now close modal
           </div>
           <!-- /.box-header -->
           <!-- form start -->
-          <form role="form">
+          <form role="form" name="addcat" action ="" method="GET">
             <div class="box-body">
               <div class="form-group">
                 <label for="cat_id">ID</label>
@@ -155,7 +253,7 @@ $('#deleteModal').modal('hide'); // now close modal
             <!-- /.box-body -->
 
             <div class="box-footer">
-              <button type="submit" class="btn btn-primary">Add Category</button>
+              <button type="button" class="btn btn-primary" onclick="addCat(this.form)">Add Category</button>
             </div>
           </form>
         </div>
