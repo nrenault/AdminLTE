@@ -28,7 +28,7 @@
               <th>Name</th>
               <th>Url</th>
               <th>Owner</th>
-              <th>Status</th>
+              <th align="center">Status</th>
               <th>node_id</th>
               <th>node_id2</th>
               <th>node_id3</th>
@@ -58,11 +58,11 @@
                 echo "<a href='".$website_url."' target='_blank'>".$website_url."</a>";
                 echo "</td><td>";
                 echo "".$owner_firstname." ".$owner_lastname."";
-                echo "</td><td>";
-                if ($website_status = "1") {
-                  echo "<font color='green'>On</font>";
-                } else if ($website_status = "0") {
-                  echo "<font color='red'>Off</font>";
+                echo "</td><td align='center'>";
+                if ($website_status == "1") {
+                  echo "<font color='green'><span class='glyphicon glyphicon-ok-circle' aria-hidden='true'></span></font>";
+                } else {
+                  echo "<font color='red'><span class='glyphicon glyphicon-ban-circle' aria-hidden='true'></span></font>";
                 }
                 echo "</td><td>";
                 echo $website_node_id;
@@ -82,7 +82,7 @@
               <th>Name</th>
               <th>Url</th>
               <th>Owner</th>
-              <th>Status</th>
+              <th align="center">Status</th>
               <th>node_id</th>
               <th>node_id2</th>
               <th>node_id3</th>
