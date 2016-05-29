@@ -82,6 +82,23 @@ setTimeout(function() { location.reload(); }, 1000);
 <section class="content">
   <div class="row">
     <div class="col-xs-4">
+      <div id='deleteModal' class='modal fade' role='dialog'>
+        <div class='modal-dialog'>
+          <div class='modal-content'>
+            <div class='modal-header'>
+              <button type='button' class='close' data-dismiss='modal' aria-hidden='true'>×</button>
+              <h4 class='modal-title'>Delete </h4>
+            </div>
+            <div class='modal-body'>
+              <p>Do You Really Want to Delete This ?</p>
+            </div>
+            <div class='modal-footer'>
+              <button type='button' class='btn btn-default' data-dismiss='modal'>Cancel</button>
+                  <span id= 'deleteButton'></span>
+              </div>
+          </div>
+        </div>
+      </div>
       <div class="box">
         <div class="box-body">
           <table id="example2" class="table table-bordered table-hover">
