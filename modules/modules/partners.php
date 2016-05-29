@@ -154,7 +154,7 @@ function addPartner(form) {
       echo '</select></div>';
       echo '<input type="hidden" class="form-control" id="partner_website_id" value="'.$website.'">';
       echo '<div class="checkbox"><label>';
-      echo '<input type="checkbox" id="partner_status"> Active partner link';
+      echo '<input type="checkbox" id="partner_status"> Active partner link</label></div></div>';
       echo '<div class="box-footer">';
       echo '<button type="button" class="btn btn-primary" onclick="addPartner(this.form)">Add partner link</button>';
       echo '</div></form>';
