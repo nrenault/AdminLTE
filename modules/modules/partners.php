@@ -112,6 +112,27 @@
       echo '</tr></tfoot></table>';
       echo '</div></div></div></div>';
       echo '<div class="row"><div class="col-xs-12">';
+      echo '<form role="form" name="addpartner" action ="" method="GET">';
+      echo '<div class="box-body">';
+      echo '<div class="form-group">';
+      echo '<label for="partner_text">Link Text</label>';
+      echo '<input type="text" class="form-control" id="partner_text" placeholder="Enter text link"></div>';
+      echo '<div class="form-group">';
+      echo '<label for="partner_title">Name</label>';
+      echo '<input type="text" class="form-control" id="partner_title" placeholder="Link title"></div>';
+      echo '<div class="form-group">';
+      echo '<label for="partner_url">Name</label>';
+      echo '<input type="text" class="form-control" id="partner_url" placeholder="Url"></div>';
+      echo '<div class="form-group">';
+      echo '<label for="partner_lang">Lang</label>';
+      echo '<select id="partner_lang" class="form-control">';
+      echo '<option>fr</option><option>en</option>';
+      echo '</select></div>';
+      echo '<div class="checkbox"><label>';
+      echo '<input type="checkbox" id="partner_status"> Active partner link';
+      echo '<div class="box-footer">';
+      echo '<button type="button" class="btn btn-primary" onclick="addPartner(this.form)">Add partner link</button>';
+      echo '</div></form>';
       echo '</div></div>';
     } ?>
 </section>
