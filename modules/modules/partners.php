@@ -52,21 +52,7 @@
                 echo $links_in['total_in'];
                 echo "</td><td>";
                 $edit_partners = "confirmEditModal('".$website_id."')";
-                echo '<button type="button" class="btn btn-xs btn-info" onclick="'.$edit_partners.'"><i class="fa fa-edit"></i> Edit</button>';
-                // $sql_select_module_legal = "SELECT * from modules where website_id = '$website_id' and name = 'legal' ";
-                // $req_select_module_legal = mysql_query($sql_select_module_legal) or die('<br>Erreur SQL !<br>'.$sql_select_module_legal.'<br>'.mysql_error());
-                // if (!mysql_num_rows($req_select_module_legal)) {
-                //   echo "<font color='red'><span class='glyphicon glyphicon-ban-circle' aria-hidden='true'></span></font>";
-                // } else {
-                //   while ($module_legal= mysql_fetch_assoc($req_select_module_legal)) {
-                //     $module_legal_status = $module_legal['active'];
-                //     if ($module_legal_status = "1") {
-                //       echo "<font color='green'><span class='glyphicon glyphicon-align-center glyphicon-ok-circle' aria-hidden='true'></span></font>";
-                //     } else if ($module_legal_status = "0") {
-                //       echo "<font color='red'><span class='glyphicon glyphicon-ban-circle' aria-hidden='true'></span></font>";
-                //     }
-                //   }
-                // }
+                echo '<button type="button" class="btn btn-xs btn-info" onclick="'.$edit_partners.'"><i class="fa fa-edit"></i> Edit Partners</button>';
                 echo "</td><tr>";
               }
               ?>
