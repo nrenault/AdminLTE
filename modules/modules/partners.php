@@ -207,7 +207,7 @@ setTimeout(function() { location.reload(); }, 1000);
       echo '<div class="box-header with-border">';
       echo '<h3 class="box-title">Add new partner link</h3>';
       echo '</div>';
-      echo '<form role="form" name="addPartner" action ="" method="GET">';
+      echo '<form role="form" name="addpartner" action ="" method="GET">';
       echo '<div class="box-body">';
       echo '<div class="form-group">';
       echo '<label for="partner_text">Link Text</label>';
@@ -229,6 +229,6 @@ setTimeout(function() { location.reload(); }, 1000);
       echo '<div class="box-footer">';
       echo '<button type="button" class="btn btn-primary" onclick="addPartner(this.form)">Add partner link</button>';
       echo '</div></form>';
-      echo '</div></div>';
+      echo '</div>';
     } ?>
 </section>
