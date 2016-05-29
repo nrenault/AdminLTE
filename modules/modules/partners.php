@@ -55,7 +55,6 @@ $.ajax(
         parent.fadeOut('slow', function() {$(this).remove();});
        }
  });
-$("#successMessage").html("Partner "+id+" Deleted successfully!");
 $('#deleteModal').modal('hide');
 setTimeout(function() { location.reload(); }, 1000);
 }
