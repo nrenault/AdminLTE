@@ -112,6 +112,10 @@
       echo '</tr></tfoot></table>';
       echo '</div></div></div></div>';
       echo '<div class="row"><div class="col-xs-12">';
+      echo '<div class="box box-primary">';
+      echo '<div class="box-header with-border">';
+      echo '<h3 class="box-title">Add new category</h3>';
+      echo '</div>';
       echo '<form role="form" name="addpartner" action ="" method="GET">';
       echo '<div class="box-body">';
       echo '<div class="form-group">';
