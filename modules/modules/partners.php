@@ -1,4 +1,3 @@
-<!-- Content Header (Page header) -->
 <section class="content-header">
   <h1>
     Partners
@@ -6,7 +5,7 @@
       $sql_select_website_name = "SELECT name FROM `websites`;";
       $req_select_website_name = mysql_query($sql_select_website_name) or die('<br>Erreur SQL !<br>'.$sql_select_website_name.'<br>'.mysql_error());
       $select_website_name = mysql_fetch_assoc($req_select_website_name);
-      echo "<small>".$select_website_name['name']."</small>";    
+      echo "<small>".$select_website_name['name']."</small>";
     }
     ?>
   </h1>
@@ -57,8 +56,7 @@
                 $links_in = mysql_fetch_assoc($req_select_links_in);
                 echo $links_in['total_in'];
                 echo "</td><td align='center'>";
-                $edit_partners = "confirmEditModal('".$website_id."')";
-                echo '<button type="button" class="btn btn-xs btn-info" onclick="'.$edit_partners.'"><i class="fa fa-edit"></i> Edit Partners</button>';
+                echo '<a href="/admin/index.php?module=modules&page=partners&website='.$website_id.'"><button type="button" class="btn btn-xs btn-info"><i class="fa fa-edit"></i> Edit Partners</button></a>';
                 echo "</td><tr>";
               }
               ?>
