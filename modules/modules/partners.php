@@ -1,3 +1,23 @@
+<script>
+function addPartner(form) {
+    website_id =form.partner_website_id.value;
+    text =form.partner_text.value;
+    title =form.partner_title.value;
+    url =form.partner_url.value;
+    lang =form.partner_lang.value;
+    status =form.partner_status.value;
+    $.ajax(
+    {
+           type: "GET",
+           url: "/admin/modules/add.php?module=partners&website_id="+website_id+"&text="+text+"&title="+title+"&url="+url+"&lang="+lang+"&status="+status+"",
+           success: function()
+           {
+            parent.fadeOut('slow', function() {$(this).remove();});
+           }
+     });
+     setTimeout(function() { location.reload(); }, 1500);
+}
+</script>
 <section class="content-header">
   <h1>
     Partners
@@ -114,7 +134,7 @@
       echo '<div class="row"><div class="col-xs-12">';
       echo '<div class="box box-primary">';
       echo '<div class="box-header with-border">';
-      echo '<h3 class="box-title">Add new category</h3>';
+      echo '<h3 class="box-title">Add new partner link</h3>';
       echo '</div>';
       echo '<form role="form" name="addpartner" action ="" method="GET">';
       echo '<div class="box-body">';
@@ -122,16 +142,17 @@
       echo '<label for="partner_text">Link Text</label>';
       echo '<input type="text" class="form-control" id="partner_text" placeholder="Enter text link"></div>';
       echo '<div class="form-group">';
-      echo '<label for="partner_title">Name</label>';
+      echo '<label for="partner_title">Link title</label>';
       echo '<input type="text" class="form-control" id="partner_title" placeholder="Link title"></div>';
       echo '<div class="form-group">';
-      echo '<label for="partner_url">Name</label>';
+      echo '<label for="partner_url">Link url</label>';
       echo '<input type="text" class="form-control" id="partner_url" placeholder="Url"></div>';
       echo '<div class="form-group">';
       echo '<label for="partner_lang">Lang</label>';
       echo '<select id="partner_lang" class="form-control">';
       echo '<option>fr</option><option>en</option>';
       echo '</select></div>';
+      echo '<input type="hidden" class="form-control" id="partner_website_id" value="'.$website.'">';
       echo '<div class="checkbox"><label>';
       echo '<input type="checkbox" id="partner_status"> Active partner link';
       echo '<div class="box-footer">';
