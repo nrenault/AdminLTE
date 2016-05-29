@@ -39,7 +39,7 @@
                 $website_name = $website['name'];
                 $website_url = preg_replace('#^https?://#', '', rtrim($website['url'],'/'));
                 echo "<tr><td>";
-                echo $website_name;
+                echo $website_url;
                 echo "</td><td>";
                 $sql_select_links_out = "SELECT COUNT(*) as total_out from partners where website_id = '$website_id'";
                 $req_select_links_out = mysql_query($sql_select_links_out) or die('<br>Erreur SQL !<br>'.$sql_select_links_out.'<br>'.mysql_error());
