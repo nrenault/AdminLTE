@@ -50,7 +50,7 @@
                 $req_select_links_in = mysql_query($sql_select_links_in) or die('<br>Erreur SQL !<br>'.$sql_select_links_in.'<br>'.mysql_error());
                 $links_in = mysql_fetch_assoc($req_select_links_in);
                 echo $links_in['total_in'];
-                echo "</td><td>";
+                echo "</td><td align='center'>";
                 $edit_partners = "confirmEditModal('".$website_id."')";
                 echo '<button type="button" class="btn btn-xs btn-info" onclick="'.$edit_partners.'"><i class="fa fa-edit"></i> Edit Partners</button>';
                 echo "</td><tr>";
