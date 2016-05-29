@@ -2,7 +2,7 @@
   <h1>
     Partners
     <?php if (isset($_GET['website'])) {
-      $sql_select_website_name = "SELECT name FROM `websites`;";
+      $sql_select_website_name = "SELECT name FROM `websites` where website_id = '$_GET['website']';";
       $req_select_website_name = mysql_query($sql_select_website_name) or die('<br>Erreur SQL !<br>'.$sql_select_website_name.'<br>'.mysql_error());
       $select_website_name = mysql_fetch_assoc($req_select_website_name);
       echo "<small>".$select_website_name['name']."</small>";
@@ -20,9 +20,6 @@
   <div class="row">
     <div class="col-xs-4">
       <div class="box">
-        <!-- <div class="box-header">
-          <h3 class="box-title">Hover Data Table</h3>
-        </div> -->
         <div class="box-body">
           <table id="example2" class="table table-bordered table-hover">
             <thead>
@@ -37,8 +34,6 @@
               <?php
               $sql_select_websites = "SELECT * FROM `websites`;";
               $req_select_websites = mysql_query($sql_select_websites) or die('<br>Erreur SQL !<br>'.$sql_select_websites.'<br>'.mysql_error());
-              // $sql_select_websites = "SELECT users.*,websites.* FROM users,websites where users.id = websites.owner";
-              // $req_select_websites = mysql_query($sql_select_websites) or die('<br>Erreur SQL !<br>'.$sql_select_websites.'<br>'.mysql_error());
               while ($website = mysql_fetch_assoc($req_select_websites)) {
                 $website_id = $website['id'];
                 $website_name = $website['name'];
