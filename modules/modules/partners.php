@@ -41,6 +41,24 @@ $.ajax(
  });
 setTimeout(function() { location.reload(); }, 1000);
 }
+function confirmDelete(id){
+$('#deleteModal').modal();
+$('#deleteButton').html('<a class="btn btn-danger" onclick="deleteData('+id+')">Delete</a>');
+}
+function deleteData(id){
+$.ajax(
+{
+       type: "GET",
+       url: "/admin/modules/delete.php?module=partners&id="+id+"",
+       success: function()
+       {
+        parent.fadeOut('slow', function() {$(this).remove();});
+       }
+ });
+$("#successMessage").html("Partner "+id+" Deleted successfully!");
+$('#deleteModal').modal('hide');
+setTimeout(function() { location.reload(); }, 1000);
+}
 </script>
 <section class="content-header">
   <h1>
@@ -63,7 +81,7 @@ setTimeout(function() { location.reload(); }, 1000);
 
 <section class="content">
   <div class="row">
-    <div class="col-xs-3">
+    <div class="col-xs-4">
       <div class="box">
         <div class="box-body">
           <table id="example2" class="table table-bordered table-hover">
@@ -154,6 +172,9 @@ setTimeout(function() { location.reload(); }, 1000);
           $activate_partner = "activatePartner('".$partner_id."')";
           echo '<button type="button" class="btn btn-xs btn-success" onclick="'.$activate_partner.'"><i class="fa fa-check"></i> Activate</button>';
         }
+        $confirm_delete = "confirmDelete('".$partner_id."')";
+        echo "&nbsp;&nbsp;";
+        echo '<button type="button" class="btn btn-xs btn-danger" onclick="'.$confirm_delete.'"><i class="glyphicon glyphicon-remove"></i> Delete</button>';
         echo "</td><tr>";
       }
       echo '</tbody><tfoot><tr>';
