@@ -143,8 +143,6 @@ setTimeout(function() { location.reload(); }, 1000);
         echo "</td><td>";
         echo $partner_lang;
         echo "</td><td>";
-        echo $partner_status;
-        echo "</td><td>";
         if ($partner_status == "1") {
           echo "<font color='green'><span class='glyphicon glyphicon-ok-circle' aria-hidden='true'></span></font>";
           echo "</td><td>";
