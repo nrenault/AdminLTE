@@ -72,7 +72,7 @@
     <?php
     if (isset($_GET['website'])) {
       $website=$_GET['website'];
-      echo '<div class="col-xs-4"><div class="box"><div class="box-body">';
+      echo '<div class="col-xs-8"><div class="box"><div class="box-body">';
       echo '<table id="example2" class="table table-bordered table-hover"><thead><tr>';
       echo '<th>Texte</th>';
       echo '<th>Title</th>';
@@ -88,7 +88,7 @@
         $partner_title = $select_links['link_title'];
         $partner_url = $select_links['link_url'];
         $partner_lang = $select_link['lang'];
-        $artner_status = $select_links['active'];
+        $partner_status = $select_links['active'];
         echo "<tr><td>";
         echo $partner_txt;
         echo "</td><td>";
@@ -98,6 +98,7 @@
         echo "</td><td>";
         echo $partner_lang;
         echo "</td><td>";
+        echo $partner_status;
         echo "</td><tr>";
       }
       echo '</tbody><tfoot><tr>';
