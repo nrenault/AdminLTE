@@ -25,7 +25,7 @@ if (isset($_GET['module'])) {
       } else {
         $status = "0";
       }
-      $sql_add = "insert into $module (id,link_text,link_title,link_url,website_id,lang,active) values ('','$text','$title','$url','$website_id','$lang','$status')";
+      $sql_add = "insert into $module (link_text,link_title,link_url,website_id,lang,active) values ('$text','$title','$url','$website_id','$lang','$status')";
       $req_add = mysql_query($sql_add) or die('<br>Erreur SQL !<br>'.$sql_add.'<br>'.mysql_error());
     }
 }
