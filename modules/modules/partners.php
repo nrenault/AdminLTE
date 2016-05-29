@@ -15,7 +15,31 @@ function addPartner(form) {
             parent.fadeOut('slow', function() {$(this).remove();});
            }
      });
-     setTimeout(function() { location.reload(); }, 1500);
+     setTimeout(function() { location.reload(); }, 1000);
+}
+function desactivatePartner(id){
+$.ajax(
+{
+       type: "GET",
+       url: "/admin/modules/desactivate.php?module=partners&id="+id+"",
+       success: function()
+       {
+        parent.fadeOut('slow', function() {$(this).remove();});
+       }
+ });
+setTimeout(function() { location.reload(); }, 1000);
+}
+function activatePartner(id){
+$.ajax(
+{
+       type: "GET",
+       url: "/admin/modules/activate.php?module=partners&id="+id+"",
+       success: function()
+       {
+        parent.fadeOut('slow', function() {$(this).remove();});
+       }
+ });
+setTimeout(function() { location.reload(); }, 1000);
 }
 </script>
 <section class="content-header">
@@ -120,6 +144,18 @@ function addPartner(form) {
         echo $partner_lang;
         echo "</td><td>";
         echo $partner_status;
+        echo "</td><td>";
+        if ($partner_status == "1") {
+          echo "<font color='green'><span class='glyphicon glyphicon-ok-circle' aria-hidden='true'></span></font>";
+          echo "</td><td>";
+          $desactivate_partner = "desactivatePartner('".$partner_id."')";
+          echo '<button type="button" class="btn btn-xs btn-warning" onclick="'.$desactivate_partner.'"><i class="fa fa-ban"></i> Desactivate</button>';
+        } else {
+          echo "<font color='red'><span class='glyphicon glyphicon-ban-circle' aria-hidden='true'></span></font>";
+          echo "</td><td>";
+          $activate_partner = "activatePartner('".$partner_id."')";
+          echo '<button type="button" class="btn btn-xs btn-success" onclick="'.$activate_partner.'"><i class="fa fa-check"></i> Activate</button>';
+        }
         echo "</td><tr>";
       }
       echo '</tbody><tfoot><tr>';
@@ -136,7 +172,7 @@ function addPartner(form) {
       echo '<div class="box-header with-border">';
       echo '<h3 class="box-title">Add new partner link</h3>';
       echo '</div>';
-      echo '<form role="form" name="addpartner" action ="" method="GET">';
+      echo '<form role="form" name="addPartner" action ="" method="GET">';
       echo '<div class="box-body">';
       echo '<div class="form-group">';
       echo '<label for="partner_text">Link Text</label>';
