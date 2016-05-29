@@ -63,7 +63,7 @@ setTimeout(function() { location.reload(); }, 1000);
 
 <section class="content">
   <div class="row">
-    <div class="col-xs-4">
+    <div class="col-xs-3">
       <div class="box">
         <div class="box-body">
           <table id="example2" class="table table-bordered table-hover">
@@ -142,7 +142,7 @@ setTimeout(function() { location.reload(); }, 1000);
         echo $partner_url;
         echo "</td><td>";
         echo $partner_lang;
-        echo "</td><td>";
+        echo "</td><td align='center'>";
         if ($partner_status == "1") {
           echo "<font color='green'><span class='glyphicon glyphicon-ok-circle' aria-hidden='true'></span></font>";
           echo "</td><td>";
