@@ -46,7 +46,7 @@
                 $links_out = mysql_fetch_assoc($req_select_links_out);
                 echo $links_out['total_out'];
                 echo "</td><td>";
-                $sql_select_links_in = "SELECT COUNT(*) as total_in from partners where link_title = '%$website_url%'";
+                $sql_select_links_in = "SELECT COUNT(*) as total_in from partners where link_url = '%$website_url%'";
                 $req_select_links_in = mysql_query($sql_select_links_in) or die('<br>Erreur SQL !<br>'.$sql_select_links_in.'<br>'.mysql_error());
                 $links_in = mysql_fetch_assoc($req_select_links_in);
                 echo $links_in['total_in'];
