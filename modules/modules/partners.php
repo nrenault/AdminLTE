@@ -2,7 +2,8 @@
   <h1>
     Partners
     <?php if (isset($_GET['website'])) {
-      $sql_select_website_name = "SELECT name FROM `websites` where website_id = '$_GET['website']'";
+      $id = $_GET['website'];
+      $sql_select_website_name = "SELECT name FROM `websites` where website_id = '$id'";
       $req_select_website_name = mysql_query($sql_select_website_name) or die('<br>Erreur SQL !<br>'.$sql_select_website_name.'<br>'.mysql_error());
       $select_website_name = mysql_fetch_assoc($req_select_website_name);
       echo "<small>".$select_website_name['name']."</small>";
