@@ -1,8 +1,14 @@
 <!-- Content Header (Page header) -->
 <section class="content-header">
   <h1>
-    Data Tables
-    <small>advanced tables</small>
+    Partners
+    <?php if (isset($_GET['website'])) {
+      $sql_select_website_name = "SELECT name FROM `websites`;";
+      $req_select_website_name = mysql_query($sql_select_website_name) or die('<br>Erreur SQL !<br>'.$sql_select_website_name.'<br>'.mysql_error());
+      $select_website_name = mysql_fetch_assoc($req_select_website_name);
+      echo "<small>".$select_website_name['name']."</small>";    
+    }
+    ?>
   </h1>
   <ol class="breadcrumb">
     <li><a href="index.php"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -79,6 +85,7 @@
       echo '<th>Url</th>';
       echo '<th>Lang</th>';
       echo '<th>Status</th>';
+      echo '<th></th>';
       echo '</tr></thead><tbody>';
       $sql_select_links = "SELECT * from partners where website_id = '$website'";
       $req_select_links = mysql_query($sql_select_links) or die('<br>Erreur SQL !<br>'.$sql_select_links.'<br>'.mysql_error());
@@ -87,7 +94,7 @@
         $partner_txt = $select_links['link_text'];
         $partner_title = $select_links['link_title'];
         $partner_url = $select_links['link_url'];
-        $partner_lang = $select_link['lang'];
+        $partner_lang = $select_links['lang'];
         $partner_status = $select_links['active'];
         echo "<tr><td>";
         echo $partner_txt;
@@ -107,8 +114,10 @@
       echo '<th>Url</th>';
       echo '<th>Lang</th>';
       echo '<th>Status</th>';
+      echo '<th></th>';
       echo '</tr></tfoot></table>';
-      echo '</div></div></div>';
+      echo '</div></div></div></div>';
+      echo '<div class="row"><div class="col-xs-12">';
+      echo '</div></div>';
     } ?>
-  </div>
 </section>
