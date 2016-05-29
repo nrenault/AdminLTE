@@ -69,5 +69,45 @@
         </div>
       </div>
     </div>
+    <?php
+    if (isset($_GET['website'])) {
+      $website=$_GET['website'];
+      echo '<div class="col-xs-4"><div class="box"><div class="box-body">';
+      echo '<table id="example2" class="table table-bordered table-hover"><thead><tr>';
+      echo '<th>Texte</th>';
+      echo '<th>Title</th>';
+      echo '<th>Url</th>';
+      echo '<th>Lang</th>';
+      echo '<th>Status</th>';
+      echo '</tr></thead><tbody>';
+      $sql_select_links = "SELECT * from partners where website_id = '$website'";
+      $req_select_links = mysql_query($sql_select_links) or die('<br>Erreur SQL !<br>'.$sql_select_links.'<br>'.mysql_error());
+      while ($select_links = mysql_fetch_assoc($req_select_links)) {
+        $partner_id = $select_links['id'];
+        $partner_txt = $select_links['link_text'];
+        $partner_title = $select_links['link_title'];
+        $partner_url = $select_links['link_url'];
+        $partner_lang = $select_link['lang'];
+        $artner_status = $select_links['active'];
+        echo "<tr><td>";
+        echo $partner_txt;
+        echo "</td><td>";
+        echo $partner_title;
+        echo "</td><td>";
+        echo $partner_url;
+        echo "</td><td>";
+        echo $partner_lang;
+        echo "</td><td>";
+        echo "</td><tr>";
+      }
+      echo '</tbody><tfoot><tr>';
+      echo '<th>Texte</th>';
+      echo '<th>Title</th>';
+      echo '<th>Url</th>';
+      echo '<th>Lang</th>';
+      echo '<th>Status</th>';
+      echo '</tr></tfoot></table>';
+      echo '</div></div></div>';
+    } ?>
   </div>
 </section>
