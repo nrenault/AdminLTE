@@ -116,8 +116,13 @@ setTimeout(function() { location.reload(); }, 1000);
               while ($website = mysql_fetch_assoc($req_select_websites)) {
                 $website_id = $website['id'];
                 $website_name = $website['name'];
+                $website_status = $website['active'];
                 $website_url = preg_replace('#^https?://#', '', rtrim($website['url'],'/'));
-                echo "<tr><td>";
+                if ( $website_status == '1') {
+                  echo "<tr><td>";
+                } else {
+                  echo "<tr class='danger'><td>";
+                }
                 echo $website_name;
                 echo "</td><td>";
                 $sql_select_links_out = "SELECT COUNT(*) as total_out from partners where website_id = '$website_id'";
