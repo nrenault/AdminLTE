@@ -50,7 +50,11 @@
                 $website_status = $website['active'];
                 $owner_firstname = $website['firstname'];
                 $owner_lastname = $website['lastname'];
-                echo "<tr><td>";
+                if ($website_status == "1") {
+                  echo "<tr><td>";
+                } else {
+                  echo "<tr class='danger'><td>";
+                }
                 echo $website_id;
                 echo "</td><td>";
                 echo $website_name;
