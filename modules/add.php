@@ -30,7 +30,7 @@ if (isset($_GET['module'])) {
     }
     if ($module == 'brands') {
       $name=mysql_real_escape_string($_GET['name']);
-      $sql_add = "insert into $module (id,name,active) values ('','$name','1')";
+      $sql_add = "insert into $module (id,name,img,active) values ('','$name','','1')";
       $req_add = mysql_query($sql_add) or die('<br>Erreur SQL !<br>'.$sql_add.'<br>'.mysql_error());
     }
 }
