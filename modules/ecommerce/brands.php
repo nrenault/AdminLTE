@@ -54,23 +54,23 @@ $("#successMessage").html("Record With id "+id+" Deleted successfully!");
 $('#deleteModal').modal('hide');
 setTimeout(function() { location.reload(); }, 3000);
 }
-function addCat(form) {
-    //TestVar =form.inputbox.value;
-    id =form.cat_id.value;
-    name =form.cat_name.value;
-    lang =form.cat_lang.value;
-    status =form.cat_status.value;
-    $.ajax(
-    {
-           type: "GET",
-           url: "/admin/modules/add.php?module=nodes&id="+id+"&name="+name+"&lang="+lang+"&status="+status+"",
-           success: function()
-           {
-            parent.fadeOut('slow', function() {$(this).remove();});
-           }
-     });
-     setTimeout(function() { location.reload(); }, 3000);
-}
+// function addCat(form) {
+//     //TestVar =form.inputbox.value;
+//     id =form.cat_id.value;
+//     name =form.cat_name.value;
+//     lang =form.cat_lang.value;
+//     status =form.cat_status.value;
+//     $.ajax(
+//     {
+//            type: "GET",
+//            url: "/admin/modules/add.php?module=nodes&id="+id+"&name="+name+"&lang="+lang+"&status="+status+"",
+//            success: function()
+//            {
+//             parent.fadeOut('slow', function() {$(this).remove();});
+//            }
+//      });
+//      setTimeout(function() { location.reload(); }, 3000);
+// }
 </script>
 <!-- Content Header (Page header) -->
 <section class="content-header">
