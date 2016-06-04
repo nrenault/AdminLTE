@@ -288,7 +288,7 @@ function addCat(form) {
             </thead>
             <tbody>
               <?php
-              $sql_select_brands = "SELECT brand,COUNT(*) as count FROM products_fr GROUP BY brand ORDER by COUNT(*) desc limit 50,100";
+              $sql_select_brands = "SELECT brand,COUNT(*) as count FROM products_fr GROUP BY brand ORDER by COUNT(*) desc limit 50,50";
               $req_select_brands = mysql_query($sql_select_brands) or die('<br>Erreur SQL !<br>'.$sql_select_brands.'<br>'.mysql_error());
               while ($row_brands = mysql_fetch_assoc($req_select_brands)) {
                   $brand = $row_brands['brand'];
