@@ -196,7 +196,7 @@ function addCat(form) {
                     echo "<font color='red'><span class='glyphicon glyphicon-ban-circle' aria-hidden='true'></span></font>";
                     echo "</td><td>";
                     $confirm_create = "confirmCreateModal('".$brand_id."')";
-                    echo '<button type="button" class="btn btn-xs btn-success" onclick="'.$confirm_activate.'"><i class="fa fa-plus-square-o"></i> Create</button>';
+                    echo '<button type="button" class="btn btn-xs btn-primary" onclick="'.$confirm_create.'"><i class="fa fa-plus-square"></i> Create</button>';
                   }
                   // $confirm_delete = "confirmDeleteModal('".$brand_id."')";
                   // echo "&nbsp;&nbsp;";
@@ -333,7 +333,7 @@ function addCat(form) {
                     echo "<font color='red'><span class='glyphicon glyphicon-ban-circle' aria-hidden='true'></span></font>";
                     echo "</td><td>";
                     $confirm_create = "confirmCreateModal('".$brand_id."')";
-                    echo '<button type="button" class="btn btn-xs btn-success" onclick="'.$confirm_activate.'"><i class="fa fa-plus-square-o"></i> Create</button>';
+                    echo '<button type="button" class="btn btn-xs btn-primary" onclick="'.$confirm_create.'"><i class="fa fa-plus-square"></i> Create</button>';
                   }
                   // $confirm_delete = "confirmDeleteModal('".$brand_id."')";
                   // echo "&nbsp;&nbsp;";
