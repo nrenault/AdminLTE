@@ -192,10 +192,15 @@ function addCat(form) {
                     echo "</td><td>";
                     $confirm_activate = "confirmActivateModal('".$brand_id."')";
                     echo '<button type="button" class="btn btn-xs btn-success" onclick="'.$confirm_activate.'"><i class="fa fa-check"></i> Activate</button>';
+                  } else if ($brand_status == "") {
+                    echo "<font color='red'><span class='glyphicon glyphicon-ban-circle' aria-hidden='true'></span></font>";
+                    echo "</td><td>";
+                    $confirm_activate = "confirmActivateModal('".$brand_id."')";
+                    echo '<button type="button" class="btn btn-xs btn-success" onclick="'.$confirm_activate.'"><i class="fa fa-check"></i> Activate</button>';
                   }
-                  $confirm_delete = "confirmDeleteModal('".$brand_id."')";
-                  echo "&nbsp;&nbsp;";
-                  echo '<button type="button" class="btn btn-xs btn-danger" onclick="'.$confirm_delete.'"><i class="glyphicon glyphicon-remove"></i> Delete</button>';
+                  // $confirm_delete = "confirmDeleteModal('".$brand_id."')";
+                  // echo "&nbsp;&nbsp;";
+                  // echo '<button type="button" class="btn btn-xs btn-danger" onclick="'.$confirm_delete.'"><i class="glyphicon glyphicon-remove"></i> Delete</button>';
                   echo "</td><tr>";
               }
               ?>
@@ -324,10 +329,15 @@ function addCat(form) {
                     echo "</td><td>";
                     $confirm_activate = "confirmActivateModal('".$brand_id."')";
                     echo '<button type="button" class="btn btn-xs btn-success" onclick="'.$confirm_activate.'"><i class="fa fa-check"></i> Activate</button>';
+                  } else if ($brand_status == "") {
+                    echo "<font color='red'><span class='glyphicon glyphicon-ban-circle' aria-hidden='true'></span></font>";
+                    echo "</td><td>";
+                    $confirm_activate = "confirmActivateModal('".$brand_id."')";
+                    echo '<button type="button" class="btn btn-xs btn-success" onclick="'.$confirm_activate.'"><i class="fa fa-check"></i> Activate</button>';
                   }
-                  $confirm_delete = "confirmDeleteModal('".$brand_id."')";
-                  echo "&nbsp;&nbsp;";
-                  echo '<button type="button" class="btn btn-xs btn-danger" onclick="'.$confirm_delete.'"><i class="glyphicon glyphicon-remove"></i> Delete</button>';
+                  // $confirm_delete = "confirmDeleteModal('".$brand_id."')";
+                  // echo "&nbsp;&nbsp;";
+                  // echo '<button type="button" class="btn btn-xs btn-danger" onclick="'.$confirm_delete.'"><i class="glyphicon glyphicon-remove"></i> Delete</button>';
                   echo "</td><tr>";
               }
               ?>
