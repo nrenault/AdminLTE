@@ -36,24 +36,36 @@ $("#successMessage").html("Record With id "+id+" activate successfully!");
 $('#activateModal').modal('hide');
 setTimeout(function() { location.reload(); }, 3000);
 }
-function confirmDeleteModal(id){
-$('#deleteModal').modal();
-$('#deleteButton').html('<a class="btn btn-danger" onclick="deleteData('+id+')">Delete</a>');
-}
-function deleteData(id){
+function createBrand(name){
 $.ajax(
 {
        type: "GET",
-       url: "/admin/modules/delete.php?module=nodes&id="+id+"",
+       url: "/admin/modules/add.php?module=brands&name="+name+"",
        success: function()
        {
         parent.fadeOut('slow', function() {$(this).remove();});
        }
  });
-$("#successMessage").html("Record With id "+id+" Deleted successfully!");
-$('#deleteModal').modal('hide');
-setTimeout(function() { location.reload(); }, 3000);
+setTimeout(function() { location.reload(); }, 0500);
 }
+// function confirmDeleteModal(id){
+// $('#deleteModal').modal();
+// $('#deleteButton').html('<a class="btn btn-danger" onclick="deleteData('+id+')">Delete</a>');
+// }
+// function deleteData(id){
+// $.ajax(
+// {
+//        type: "GET",
+//        url: "/admin/modules/delete.php?module=nodes&id="+id+"",
+//        success: function()
+//        {
+//         parent.fadeOut('slow', function() {$(this).remove();});
+//        }
+//  });
+// $("#successMessage").html("Record With id "+id+" Deleted successfully!");
+// $('#deleteModal').modal('hide');
+// setTimeout(function() { location.reload(); }, 3000);
+// }
 function addCat(form) {
     //TestVar =form.inputbox.value;
     id =form.cat_id.value;
@@ -195,7 +207,7 @@ function addCat(form) {
                   } else if ($brand_status == "") {
                     echo "<font color='red'><span class='glyphicon glyphicon-ban-circle' aria-hidden='true'></span></font>";
                     echo "</td><td>";
-                    $confirm_create = "confirmCreateModal('".$brand_id."')";
+                    $confirm_create = "confirmcreateBrand('".$brand."')";
                     echo '<button type="button" class="btn btn-xs btn-primary" onclick="'.$confirm_create.'"><i class="fa fa-plus-square"></i> Create</button>';
                   }
                   // $confirm_delete = "confirmDeleteModal('".$brand_id."')";
@@ -332,7 +344,7 @@ function addCat(form) {
                   } else if ($brand_status == "") {
                     echo "<font color='red'><span class='glyphicon glyphicon-ban-circle' aria-hidden='true'></span></font>";
                     echo "</td><td>";
-                    $confirm_create = "confirmCreateModal('".$brand_id."')";
+                    $confirm_create = "confirmcreateBrand('".$brand."')";
                     echo '<button type="button" class="btn btn-xs btn-primary" onclick="'.$confirm_create.'"><i class="fa fa-plus-square"></i> Create</button>';
                   }
                   // $confirm_delete = "confirmDeleteModal('".$brand_id."')";
