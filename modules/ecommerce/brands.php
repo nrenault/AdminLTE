@@ -168,7 +168,7 @@ function addCat(form) {
                   echo "<tr><td>";
                   echo $brand_id;
                   echo "</td><td>";
-                  echo $brand_name;
+                  echo $brand;
                   echo "</td><td>";
                   echo $brand_img;
                   echo "</td><td align='center'>";
