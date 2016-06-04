@@ -201,17 +201,17 @@ function addCat(form) {
                   if ($brand_status == "1") {
                     echo "<font color='green'><span class='glyphicon glyphicon-ok-circle' aria-hidden='true'></span></font>";
                     echo "</td><td>";
-                    $confirm_desactivate = "confirmDesactivateModal('".$brand_id."')";
+                    $confirm_desactivate = "desactivateBrand('".$brand_id."')";
                     echo '<button type="button" class="btn btn-xs btn-warning" onclick="'.$confirm_desactivate.'"><i class="fa fa-ban"></i> Desactivate</button>';
                   } else if ($brand_status == "0") {
                     echo "<font color='red'><span class='glyphicon glyphicon-ban-circle' aria-hidden='true'></span></font>";
                     echo "</td><td>";
-                    $confirm_activate = "confirmActivateModal('".$brand_id."')";
+                    $confirm_activate = "activateBrand('".$brand_id."')";
                     echo '<button type="button" class="btn btn-xs btn-success" onclick="'.$confirm_activate.'"><i class="fa fa-check"></i> Activate</button>';
                   } else if ($brand_status == "") {
                     echo "<font color='red'><span class='glyphicon glyphicon-ban-circle' aria-hidden='true'></span></font>";
                     echo "</td><td>";
-                    $confirm_create = "confirmcreateBrand('".$brand."')";
+                    $confirm_create = "createBrand('".$brand."')";
                     echo '<button type="button" class="btn btn-xs btn-primary" onclick="'.$confirm_create.'"><i class="fa fa-plus-square"></i> Create</button>';
                   }
                   // $confirm_delete = "confirmDeleteModal('".$brand_id."')";
