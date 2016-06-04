@@ -163,11 +163,16 @@ function addCat(form) {
                   $count = $row_brands['count'];
                   $sql_select_brands_infos = "SELECT * from brands where name = '$brand'";
                   $req_select_brands_infos = mysql_query($sql_select_brands_infos) or die('<br>Erreur SQL !<br>'.$sql_select_brands_infos.'<br>'.mysql_error());
-                  $brands_img = mysql_fetch_array($req_select_brands_infos);
-                  $brand_id = $brands_img['id'];
-                  $brand_name = $brands_img['name'];
-                  $brand_img = $brands_img['img'];
-                  $brand_status = $brands_img['active'];
+                  if (mysql_num_rows($req_select_products_ads)) {
+                    $brands_img = mysql_fetch_array($req_select_brands_infos);
+                    $brand_id = $brands_img['id'];
+                    $brand_img = $brands_img['img'];
+                    $brand_status = $brands_img['active'];
+                  } else {
+                    $brand_id = '';
+                    $brand_img = '';
+                    $brand_status = '';
+                  }
                   echo "<tr><td>";
                   echo $brand_id;
                   echo "</td><td>";
