@@ -149,6 +149,7 @@ function addCat(form) {
               <th>id</th>
               <th>Name</th>
               <th>Img</th>
+              <th>Products</th>
               <th>Status</th>
               <th></th>
             </tr>
@@ -159,6 +160,7 @@ function addCat(form) {
               $req_select_brands = mysql_query($sql_select_brands) or die('<br>Erreur SQL !<br>'.$sql_select_brands.'<br>'.mysql_error());
               while ($row_brands = mysql_fetch_assoc($req_select_brands)) {
                   $brand = $row_brands['brand'];
+                  $count = $row_brands['count'];
                   $sql_select_brands_infos = "SELECT * from brands where name = '$brand'";
                   $req_select_brands_infos = mysql_query($sql_select_brands_infos) or die('<br>Erreur SQL !<br>'.$sql_select_brands_infos.'<br>'.mysql_error());
                   $brands_img = mysql_fetch_array($req_select_brands_infos);
@@ -172,6 +174,8 @@ function addCat(form) {
                   echo $brand;
                   echo "</td><td>";
                   echo $brand_img;
+                  echo "</td><td>";
+                  echo $count;
                   echo "</td><td align='center'>";
                   if ($brand_status == "1") {
                     echo "<font color='green'><span class='glyphicon glyphicon-ok-circle' aria-hidden='true'></span></font>";
@@ -196,6 +200,7 @@ function addCat(form) {
               <th>id</th>
               <th>Name</th>
               <th>Img</th>
+              <th>Products</th>
               <th>Status</th>
               <th></th>
             </tr>
@@ -208,7 +213,7 @@ function addCat(form) {
       <!-- /.box -->
     </div>
     <!-- /.col -->
-      <div class="col-xs-3">
+      <!-- <div class="col-xs-3"> -->
         <!-- general form elements -->
         <div class="box box-primary">
           <div class="box-header with-border">
