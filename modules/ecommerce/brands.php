@@ -1,40 +1,27 @@
 <script type="text/javascript">
-function confirmDesactivateModal(id){
-$('#desactivateModal').modal();
-$('#desactivateButton').html('<a class="btn btn-danger" onclick="desactivateData('+id+')">Desactivate</a>');
-}
-function desactivateData(id){
-// do your stuffs with id
+function desactivateBrand(id){
 $.ajax(
 {
        type: "GET",
-       url: "/admin/modules/desactivate.php?module=nodes&id="+id+"",
+       url: "/admin/modules/desactivate.php?module=brands&id="+id+"",
        success: function()
        {
         parent.fadeOut('slow', function() {$(this).remove();});
        }
  });
-$("#successMessage").html("Record With id "+id+" Desactivate successfully!");
-$('#desactivateModal').modal('hide');
-setTimeout(function() { location.reload(); }, 3000);
+setTimeout(function() { location.reload(); }, 0500);
 }
-function confirmActivateModal(id){
-$('#activateModal').modal();
-$('#activateButton').html('<a class="btn btn-danger" onclick="activateData('+id+')">Activate</a>');
-}
-function activateData(id){
+function activateBrand(id){
 $.ajax(
 {
        type: "GET",
-       url: "/admin/modules/activate.php?module=nodes&id="+id+"",
+       url: "/admin/modules/activate.php?module=brands&id="+id+"",
        success: function()
        {
         parent.fadeOut('slow', function() {$(this).remove();});
        }
  });
-$("#successMessage").html("Record With id "+id+" activate successfully!");
-$('#activateModal').modal('hide');
-setTimeout(function() { location.reload(); }, 3000);
+setTimeout(function() { location.reload(); }, 0500);
 }
 function createBrand(name){
 $.ajax(
@@ -48,24 +35,6 @@ $.ajax(
  });
 setTimeout(function() { location.reload(); }, 0500);
 }
-// function confirmDeleteModal(id){
-// $('#deleteModal').modal();
-// $('#deleteButton').html('<a class="btn btn-danger" onclick="deleteData('+id+')">Delete</a>');
-// }
-// function deleteData(id){
-// $.ajax(
-// {
-//        type: "GET",
-//        url: "/admin/modules/delete.php?module=nodes&id="+id+"",
-//        success: function()
-//        {
-//         parent.fadeOut('slow', function() {$(this).remove();});
-//        }
-//  });
-// $("#successMessage").html("Record With id "+id+" Deleted successfully!");
-// $('#deleteModal').modal('hide');
-// setTimeout(function() { location.reload(); }, 3000);
-// }
 function addCat(form) {
     //TestVar =form.inputbox.value;
     id =form.cat_id.value;
@@ -86,7 +55,7 @@ function addCat(form) {
 </script>
 <!-- Content Header (Page header) -->
 <section class="content-header">
-  <h1>Brands</h1><br><div id="successMessage" style="font-size:15px;color:green;font-weight:bold;"></div>
+  <h1>Brands</h1>
   <ol class="breadcrumb">
     <li><a href="index.php"><i class="fa fa-dashboard"></i> Home</a></li>
     <li><a href="#">E-Commerce</a></li>
@@ -197,17 +166,17 @@ function addCat(form) {
                   if ($brand_status == "1") {
                     echo "<font color='green'><span class='glyphicon glyphicon-ok-circle' aria-hidden='true'></span></font>";
                     echo "</td><td>";
-                    $confirm_desactivate = "confirmDesactivateModal('".$brand_id."')";
+                    $confirm_desactivate = "desactivateBrand('".$brand_id."')";
                     echo '<button type="button" class="btn btn-xs btn-warning" onclick="'.$confirm_desactivate.'"><i class="fa fa-ban"></i> Desactivate</button>';
                   } else if ($brand_status == "0") {
                     echo "<font color='red'><span class='glyphicon glyphicon-ban-circle' aria-hidden='true'></span></font>";
                     echo "</td><td>";
-                    $confirm_activate = "confirmActivateModal('".$brand_id."')";
+                    $confirm_activate = "activateBrand('".$brand_id."')";
                     echo '<button type="button" class="btn btn-xs btn-success" onclick="'.$confirm_activate.'"><i class="fa fa-check"></i> Activate</button>';
                   } else if ($brand_status == "") {
                     echo "<font color='red'><span class='glyphicon glyphicon-ban-circle' aria-hidden='true'></span></font>";
                     echo "</td><td>";
-                    $confirm_create = "confirmcreateBrand('".$brand."')";
+                    $confirm_create = "createBrand('".$brand."')";
                     echo '<button type="button" class="btn btn-xs btn-primary" onclick="'.$confirm_create.'"><i class="fa fa-plus-square"></i> Create</button>';
                   }
                   // $confirm_delete = "confirmDeleteModal('".$brand_id."')";
