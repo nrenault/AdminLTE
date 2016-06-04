@@ -67,57 +67,6 @@ function addCat(form) {
 <section class="content">
   <div class="row">
     <div class="col-xs-6">
-      <div id='desactivateModal' class='modal fade' role='dialog'>
-        <div class='modal-dialog'>
-          <div class='modal-content'>
-            <div class='modal-header'>
-              <button type='button' class='close' data-dismiss='modal' aria-hidden='true'>×</button>
-              <h4 class='modal-title'>Desactivate </h4>
-            </div>
-            <div class='modal-body'>
-              <p>Do You Really Want to Desactivate This ?</p>
-            </div>
-            <div class='modal-footer'>
-              <button type='button' class='btn btn-default' data-dismiss='modal'>Cancel</button>
-                  <span id= 'desactivateButton'></span>
-              </div>
-          </div>
-        </div>
-      </div>
-      <div id='activateModal' class='modal fade' role='dialog'>
-        <div class='modal-dialog'>
-          <div class='modal-content'>
-            <div class='modal-header'>
-              <button type='button' class='close' data-dismiss='modal' aria-hidden='true'>×</button>
-              <h4 class='modal-title'>Activate </h4>
-            </div>
-            <div class='modal-body'>
-              <p>Do You Really Want to Activate This ?</p>
-            </div>
-            <div class='modal-footer'>
-              <button type='button' class='btn btn-default' data-dismiss='modal'>Cancel</button>
-                  <span id= 'activateButton'></span>
-              </div>
-          </div>
-        </div>
-      </div>
-      <div id='deleteModal' class='modal fade' role='dialog'>
-        <div class='modal-dialog'>
-          <div class='modal-content'>
-            <div class='modal-header'>
-              <button type='button' class='close' data-dismiss='modal' aria-hidden='true'>×</button>
-              <h4 class='modal-title'>Delete </h4>
-            </div>
-            <div class='modal-body'>
-              <p>Do You Really Want to Delete This ?</p>
-            </div>
-            <div class='modal-footer'>
-              <button type='button' class='btn btn-default' data-dismiss='modal'>Cancel</button>
-                  <span id= 'deleteButton'></span>
-              </div>
-          </div>
-        </div>
-      </div>
       <div class="box">
         <!-- <div class="box-header">
           <h3 class="box-title">Hover Data Table</h3>
@@ -204,57 +153,6 @@ function addCat(form) {
       <!-- /.box -->
     </div>
     <div class="col-xs-6">
-      <div id='desactivateModal' class='modal fade' role='dialog'>
-        <div class='modal-dialog'>
-          <div class='modal-content'>
-            <div class='modal-header'>
-              <button type='button' class='close' data-dismiss='modal' aria-hidden='true'>×</button>
-              <h4 class='modal-title'>Desactivate </h4>
-            </div>
-            <div class='modal-body'>
-              <p>Do You Really Want to Desactivate This ?</p>
-            </div>
-            <div class='modal-footer'>
-              <button type='button' class='btn btn-default' data-dismiss='modal'>Cancel</button>
-                  <span id= 'desactivateButton'></span>
-              </div>
-          </div>
-        </div>
-      </div>
-      <div id='activateModal' class='modal fade' role='dialog'>
-        <div class='modal-dialog'>
-          <div class='modal-content'>
-            <div class='modal-header'>
-              <button type='button' class='close' data-dismiss='modal' aria-hidden='true'>×</button>
-              <h4 class='modal-title'>Activate </h4>
-            </div>
-            <div class='modal-body'>
-              <p>Do You Really Want to Activate This ?</p>
-            </div>
-            <div class='modal-footer'>
-              <button type='button' class='btn btn-default' data-dismiss='modal'>Cancel</button>
-                  <span id= 'activateButton'></span>
-              </div>
-          </div>
-        </div>
-      </div>
-      <div id='deleteModal' class='modal fade' role='dialog'>
-        <div class='modal-dialog'>
-          <div class='modal-content'>
-            <div class='modal-header'>
-              <button type='button' class='close' data-dismiss='modal' aria-hidden='true'>×</button>
-              <h4 class='modal-title'>Delete </h4>
-            </div>
-            <div class='modal-body'>
-              <p>Do You Really Want to Delete This ?</p>
-            </div>
-            <div class='modal-footer'>
-              <button type='button' class='btn btn-default' data-dismiss='modal'>Cancel</button>
-                  <span id= 'deleteButton'></span>
-              </div>
-          </div>
-        </div>
-      </div>
       <div class="box">
         <!-- <div class="box-header">
           <h3 class="box-title">Hover Data Table</h3>
