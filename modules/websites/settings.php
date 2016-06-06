@@ -174,7 +174,7 @@ function addwebsite(form) {
                   $user_id = $user['id'];
                   $user_lastname = $user['firstname'];
                   $user_fistname = $user['lastname'];
-                  echo '<option value="'.$user_id.'">'.$user_firstname.' .'$user_lastname'.</option>';
+                  echo '<option value="'.$user_id.'">'.$user_firstname.' '.$user_lastname.'</option>';
                 }
                 ?>
               </select>
