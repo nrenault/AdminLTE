@@ -172,8 +172,8 @@ function addwebsite(form) {
                 $req_select_users = mysql_query($sql_select_users) or die('<br>Erreur SQL !<br>'.$sql_select_users.'<br>'.mysql_error());
                 while ($user = mysql_fetch_assoc($req_select_users)) {
                   $user_id = $user['id'];
-                  $user_lastname = $user['firstname'];
-                  $user_fistname = $user['lastname'];
+                  $user_firstname = $user['firstname'];
+                  $user_lastname = $user['lastname'];
                   echo '<option value="'.$user_id.'">'.$user_firstname.' '.$user_lastname.'</option>';
                 }
                 ?>
