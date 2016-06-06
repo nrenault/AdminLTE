@@ -135,7 +135,9 @@ setTimeout(function() { location.reload(); }, 1000);
                 $links_in = mysql_fetch_assoc($req_select_links_in);
                 echo $links_in['total_in'];
                 echo "</td><td align='center'>";
-                echo '<a href="/admin/index.php?module=modules&page=partners&website='.$website_id.'"><button type="button" class="btn btn-xs btn-info"><i class="fa fa-edit"></i> Edit Partners</button></a>';
+                if ( $website_status == '1') {
+                  echo '<a href="/admin/index.php?module=modules&page=partners&website='.$website_id.'"><button type="button" class="btn btn-xs btn-info"><i class="fa fa-edit"></i> Edit Partners</button></a>';
+                }
                 echo "</td><tr>";
               }
               ?>
