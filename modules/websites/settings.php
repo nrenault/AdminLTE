@@ -1,3 +1,26 @@
+<script>
+function addwebsite(form) {
+    //TestVar =form.inputbox.value;
+    name =form.website_name.value;
+    url =form.website_url.value;
+    owner =form.website_owner.value;
+    nodeid =form.website_nodeid.value;
+    nodeid2 =form.website_nodeid2.value;
+    nodeid3 =form.website_nodeid3.value;
+    nodeid4 =form.website_nodeid4.value;
+    status =form.website_status.value;
+    $.ajax(
+    {
+           type: "GET",
+           url: "/admin/modules/add.php?module=websites&url="+url+"&name="+name+"&owner="+owner+"&nodeid="+nodeid+"&nodeid2="+nodeid2+"&nodeid3="+nodeid3+"&nodeid4="+nodeid4+"&status="+status+"",
+           success: function()
+           {
+            parent.fadeOut('slow', function() {$(this).remove();});
+           }
+     });
+     setTimeout(function() { location.reload(); }, 3000);
+}
+</script>
 <!-- Content Header (Page header) -->
 <section class="content-header">
   <h1>
@@ -107,41 +130,65 @@
       <!-- /.box -->
     </div>
     <!-- /.col -->
-    <div class="col-xs-3">
+    <div class="col-xs-12">
       <!-- general form elements -->
       <div class="box box-primary">
         <div class="box-header with-border">
-          <h3 class="box-title">Add new category</h3>
+          <h3 class="box-title">Add new website</h3>
         </div>
         <!-- /.box-header -->
         <!-- form start -->
-        <form role="form" name="addcat" action ="" method="GET">
+        <form role="form" name="addwebsite" action ="" method="GET">
           <div class="box-body">
             <div class="form-group">
-              <label for="cat_id">ID</label>
-              <input type="number" class="form-control" id="cat_id" placeholder="Enter Node ID">
+              <label for="website_name">Name</label>
+              <input type="text" class="form-control" id="website_name" placeholder="Website Name">
             </div>
             <div class="form-group">
-              <label for="cat_name">Name</label>
-              <input type="text" class="form-control" id="cat_name" placeholder="Category Name">
+              <label for="website_url">URL</label>
+              <input type="text" class="form-control" id="website_url" placeholder="Enter Website URL">
             </div>
             <div class="form-group">
-              <label for="cat_lang">Lang</label>
-              <select id="cat_lang" class="form-control">
-                <option>fr</option>
-                <option>en</option>
+              <label for="website_nodeid">node_id</label>
+              <input type="number" class="form-control" id="website_nodeid" placeholder="Enter Website node_id">
+            </div>
+            <div class="form-group">
+              <label for="website_nodeid2">node_id2</label>
+              <input type="number" class="form-control" id="website_nodeid2" placeholder="Enter Website node_id2">
+            </div>
+            <div class="form-group">
+              <label for="website_nodeid3">node_id3</label>
+              <input type="number" class="form-control" id="website_nodeid2" placeholder="Enter Website node_id3">
+            </div>
+            <div class="form-group">
+              <label for="website_nodeid4">node_id4</label>
+              <input type="number" class="form-control" id="website_nodeid4" placeholder="Enter Website node_id4">
+            </div>
+            <div class="form-group">
+              <label for="website_owner">Owner</label>
+              <select id="website_owner" class="form-control">
+                <?php
+                $sql_select_users = "SELECT * FROM users";
+                $req_select_users = mysql_query($sql_select_users) or die('<br>Erreur SQL !<br>'.$sql_select_users.'<br>'.mysql_error());
+                while ($user = mysql_fetch_assoc($req_select_users)) {
+                  $user_id = $user['id'];
+                  $user_lastname = $user['firstname'];
+                  $user_fistname = $user['lastname'];
+                  echo '<option value="'.$user_id.'">'.$user_firstname.' .'$user_lastname'.</option>';
+                }
+                ?>
               </select>
             </div>
             <div class="checkbox">
               <label>
-                <input type="checkbox" id="cat_status"> Active Category
+                <input type="checkbox" id="website_status"> Active Website
               </label>
             </div>
           </div>
           <!-- /.box-body -->
 
           <div class="box-footer">
-            <button type="button" class="btn btn-primary" onclick="addCat(this.form)">Add Category</button>
+            <button type="button" class="btn btn-primary" onclick="addwebsite(this.form)">Add Website</button>
           </div>
         </form>
       </div>
