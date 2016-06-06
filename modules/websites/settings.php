@@ -107,6 +107,46 @@
       <!-- /.box -->
     </div>
     <!-- /.col -->
+    <div class="col-xs-3">
+      <!-- general form elements -->
+      <div class="box box-primary">
+        <div class="box-header with-border">
+          <h3 class="box-title">Add new category</h3>
+        </div>
+        <!-- /.box-header -->
+        <!-- form start -->
+        <form role="form" name="addcat" action ="" method="GET">
+          <div class="box-body">
+            <div class="form-group">
+              <label for="cat_id">ID</label>
+              <input type="number" class="form-control" id="cat_id" placeholder="Enter Node ID">
+            </div>
+            <div class="form-group">
+              <label for="cat_name">Name</label>
+              <input type="text" class="form-control" id="cat_name" placeholder="Category Name">
+            </div>
+            <div class="form-group">
+              <label for="cat_lang">Lang</label>
+              <select id="cat_lang" class="form-control">
+                <option>fr</option>
+                <option>en</option>
+              </select>
+            </div>
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" id="cat_status"> Active Category
+              </label>
+            </div>
+          </div>
+          <!-- /.box-body -->
+
+          <div class="box-footer">
+            <button type="button" class="btn btn-primary" onclick="addCat(this.form)">Add Category</button>
+          </div>
+        </form>
+      </div>
+      <!-- /.box -->
+  </div>
   </div>
   <!-- /.row -->
 </section>
