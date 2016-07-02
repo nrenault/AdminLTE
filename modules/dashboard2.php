@@ -38,7 +38,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.2/moment.min.js"></script>
 
 <!-- Include the ViewSelector2 component script. -->
-<script src="/admin/dist/js/mbed-api/components/view-selector2.js"></script>
+<script src="/admin/dist/js/embed-api/components/view-selector2.js"></script>
 
 <!-- Include the DateRangeSelector component script. -->
 <script src="/admin/dist/js/embed-api/components/date-range-selector.js"></script>
