@@ -38,16 +38,16 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.2/moment.min.js"></script>
 
 <!-- Include the ViewSelector2 component script. -->
-<script src="/public/javascript/embed-api/components/view-selector2.js"></script>
+<script src="/dist/js/mbed-api/components/view-selector2.js"></script>
 
 <!-- Include the DateRangeSelector component script. -->
-<script src="/public/javascript/embed-api/components/date-range-selector.js"></script>
+<script src="/dist/js/embed-api/components/date-range-selector.js"></script>
 
 <!-- Include the ActiveUsers component script. -->
-<script src="/public/javascript/embed-api/components/active-users.js"></script>
+<script src="/dist/js/embed-api/components/active-users.js"></script>
 
 <!-- Include the CSS that styles the charts. -->
-<link rel="stylesheet" href="/public/css/chartjs-visualizations.css">
+<link rel="stylesheet" href="/dist/css/chartjs-visualizations.css">
 <script>
 
 // == NOTE ==
@@ -63,7 +63,7 @@ gapi.analytics.ready(function() {
    */
   gapi.analytics.auth.authorize({
     container: 'embed-api-auth-container',
-    clientid: 'REPLACE WITH YOUR CLIENT ID'
+    clientid: '60726698'
   });
 
 
