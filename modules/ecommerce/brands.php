@@ -112,11 +112,11 @@ function addCat(form) {
                     if($dossier = opendir('../images/brands/')) {
                       echo '<form><select>';
                       while(false !== ($fichier = readdir($dossier))) {
-                        $sql_brands_img = 'SELECT img from brands where img = "'.$fichier.'"';
-                        $req_brands_img = mysql_query($sql_brands_img) or die('<br>Erreur SQL !<br>'.$sql_brands_img.'<br>'.mysql_error());
-                        $brands_img = mysql_fetch_array($req_brands_img);
-                        $brand_img = $brands_img['img'];
-                        if($fichier != '.' && $fichier != '..' && $fichier != $brand_img && $fichier != 'index.php') {
+                        $sql_check_brands_img = 'SELECT img from brands where img = "'.$fichier.'"';
+                        $req_check_brands_img = mysql_query($sql_check_brands_img) or die('<br>Erreur SQL !<br>'.$sql_check_brands_img.'<br>'.mysql_error());
+                        $check_brands_img = mysql_fetch_array($req_check_brands_img);
+                        $brands_img = $check_brands_img['img'];
+                        if($fichier != '.' && $fichier != '..' && $fichier != $brands_img && $fichier != 'index.php') {
                           //echo '<li><a href="../images/brands/' . $fichier . '">' . $fichier . '</a></li>';
                           echo '<option>' . $fichier . '</option>';
                         }
@@ -131,8 +131,11 @@ function addCat(form) {
                   if ($brand_status == "1") {
                     echo "<font color='green'><span class='glyphicon glyphicon-ok-circle' aria-hidden='true'></span></font>";
                     echo "</td><td>";
-                    $confirm_edit = "editBrand('".$brand_id."')";
-                    echo '<button type="button" class="btn btn-xs btn-info" onclick="'.$confirm_edit.'"><i class="fa fa-edit"></i> Edit</button></a>';
+                    if ($brand_img == '') {
+                      $confirm_edit = "editBrand('".$brand_id."')";
+                      echo '<button type="button" class="btn btn-xs btn-info" onclick="'.$confirm_edit.'"><i class="fa fa-edit"></i> Edit</button></a>';
+                      echo '&nbsp;';
+                    }
                     $confirm_desactivate = "desactivateBrand('".$brand_id."')";
                     echo '<button type="button" class="btn btn-xs btn-warning" onclick="'.$confirm_desactivate.'"><i class="fa fa-ban"></i> Desactivate</button>';
                   } else if ($brand_status == "0") {
