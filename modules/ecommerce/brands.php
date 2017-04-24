@@ -67,22 +67,6 @@ function addCat(form) {
 <section class="content">
   <div class="row">
     <div class="col-xs-6">
-      <?php
-      if($dossier = opendir('../images/brands/')) {
-        while(false !== ($fichier = readdir($dossier))) {
-          $sql_brands_img = 'SELECT img from brands where img = "'.$fichier.'"';
-          $req_brands_img = mysql_query($sql_brands_img) or die('<br>Erreur SQL !<br>'.$sql_brands_img.'<br>'.mysql_error());
-          $brands_img = mysql_fetch_array($req_brands_img);
-          $brand_img = $brands_img['img'];
-          if($fichier != '.' && $fichier != '..' && $fichier != $brand_img && $fichier != 'index.php') {
-            echo '<li><a href="../images/brands/' . $fichier . '">' . $fichier . '</a></li>';
-            //echo $fichier;
-            echo "<br>";
-          }
-        }
-      closedir($dossier);
-      }
-      ?>
       <div class="box">
         <!-- <div class="box-header">
           <h3 class="box-title">Hover Data Table</h3>
@@ -124,7 +108,23 @@ function addCat(form) {
                   echo "</td><td>";
                   echo $brand;
                   echo "</td><td>";
-                  echo $brand_img;
+                  if ($brand_img = '') {
+                    if($dossier = opendir('../images/brands/')) {
+                      $sql_brands_img = 'SELECT img from brands where img = "'.$fichier.'"';
+                      $req_brands_img = mysql_query($sql_brands_img) or die('<br>Erreur SQL !<br>'.$sql_brands_img.'<br>'.mysql_error());
+                      echo '<form><select>';
+                      while(false !== ($fichier = readdir($dossier))) {
+                        $brands_img = mysql_fetch_array($req_brands_img);
+                        $brand_img = $brands_img['img'];
+                        if($fichier != '.' && $fichier != '..' && $fichier != $brand_img && $fichier != 'index.php') {
+                          //echo '<li><a href="../images/brands/' . $fichier . '">' . $fichier . '</a></li>';
+                          echo '<option>' . $fichier . '</option>';
+                        }
+                      }
+                    echo '</select></form>';
+                    closedir($dossier);
+                    }
+                  } else { echo $brand_img; }
                   echo "</td><td>";
                   echo $count;
                   echo "</td><td align='center'>";
