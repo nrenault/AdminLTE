@@ -131,6 +131,8 @@ function addCat(form) {
                   if ($brand_status == "1") {
                     echo "<font color='green'><span class='glyphicon glyphicon-ok-circle' aria-hidden='true'></span></font>";
                     echo "</td><td>";
+                    $confirm_edit = "editBrand('".$brand_id."')";
+                    echo '<button type="button" class="btn btn-xs btn-info" onclick="'.$confirm_edit.'"><i class="fa fa-edit"></i> Edit</button></a>';
                     $confirm_desactivate = "desactivateBrand('".$brand_id."')";
                     echo '<button type="button" class="btn btn-xs btn-warning" onclick="'.$confirm_desactivate.'"><i class="fa fa-ban"></i> Desactivate</button>';
                   } else if ($brand_status == "0") {
