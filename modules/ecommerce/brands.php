@@ -81,7 +81,6 @@ function addCat(form) {
         }
       closedir($dossier);
       }
-    }
       ?>
       <div class="box">
         <!-- <div class="box-header">
