@@ -73,6 +73,21 @@ function addCat(form) {
         </div> -->
         <!-- /.box-header -->
         <div class="box-body">
+          <?php
+          if($dossier = opendir('./mondossier')) {
+            while(false !== ($fichier = readdir($dossier))) {
+              if($fichier != '.' && $fichier != '..' && $fichier != 'index.php') {
+                echo $fichier;
+                echo "<br>";
+              }
+            }
+          closedir($dossier);  
+          }
+
+{
+
+          ?>
+{
           <table id="example2" class="table table-bordered table-hover">
             <thead>
             <tr>
