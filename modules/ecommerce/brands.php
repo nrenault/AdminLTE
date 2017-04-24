@@ -68,13 +68,12 @@ function addCat(form) {
   <div class="row">
     <div class="col-xs-6">
       <?php
-      $sql_brands_img = 'SELECT img from brands';
-      $req_brands_img = mysql_query($sql_brands_img) or die('<br>Erreur SQL !<br>'.$sql_brands_img.'<br>'.mysql_error());
-      while ($brands_img = mysql_fetch_assoc($req_brands_img)) {
-        $imgs = $brands_img['img'];
       if($dossier = opendir('../images/brands/')) {
         while(false !== ($fichier = readdir($dossier))) {
-          if($fichier != '.' && $fichier != '..' && $fichier != $imgs && $fichier != 'index.php') {
+          $sql_brands_img = 'SELECT img from brands where img = "'.$fichier.'"';
+          $req_brands_img = mysql_query($sql_brands_img) or die('<br>Erreur SQL !<br>'.$sql_brands_img.'<br>'.mysql_error());
+          $brands_img = mysql_fetch_array($req_brands_img);
+          if($fichier != '.' && $fichier != '..' && $fichier != $brands_img && $fichier != 'index.php') {
             echo '<li><a href="../images/brands/' . $fichier . '">' . $fichier . '</a></li>';
             //echo $fichier;
             echo "<br>";
