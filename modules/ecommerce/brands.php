@@ -74,10 +74,11 @@ function addCat(form) {
         <!-- /.box-header -->
         <div class="box-body">
           <?php
-          if($dossier = opendir('./images/brands/')) {
+          if($dossier = opendir('../images/brands/')) {
             while(false !== ($fichier = readdir($dossier))) {
               if($fichier != '.' && $fichier != '..' && $fichier != 'index.php') {
-                echo $fichier;
+                echo '<li><a href="../images/brands/' . $fichier . '">' . $fichier . '</a></li>';
+                //echo $fichier;
                 echo "<br>";
               }
             }
