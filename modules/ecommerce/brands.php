@@ -117,7 +117,7 @@ function addCat(form) {
                   if ($brand_img == '') {
                     if($dossier = opendir('../images/brands/')) {
                       echo '<form name="brand"><select name="Liste" onChange="editBrand()">';
-                      echo '<option value=''></option>';
+                      echo '<option value=""></option>';
                       while(false !== ($fichier = readdir($dossier))) {
                         $sql_check_brands_img = 'SELECT img from brands where img = "'.$fichier.'"';
                         $req_check_brands_img = mysql_query($sql_check_brands_img) or die('<br>Erreur SQL !<br>'.$sql_check_brands_img.'<br>'.mysql_error());
