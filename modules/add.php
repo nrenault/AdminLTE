@@ -29,8 +29,8 @@ if (isset($_GET['module'])) {
       $req_add = mysql_query($sql_add) or die('<br>Erreur SQL !<br>'.$sql_add.'<br>'.mysql_error());
     }
     if ($module == 'brands') {
-      $name=mysql_real_escape_string(.html_entity_decode($_GET['name'], ENT_NOQUOTES, "UTF-8"));
-      //$name=mysql_real_escape_string($_GET['name']);
+      // $name=mysql_real_escape_string(.html_entity_decode($_GET['name'], ENT_NOQUOTES, "UTF-8"));
+      $name=mysql_real_escape_string($_GET['name']);
       $sql_add = "insert into $module (name,img,active) values ('$name','','1')";
       $req_add = mysql_query($sql_add) or die('<br>Erreur SQL !<br>'.$sql_add.'<br>'.mysql_error());
     }
