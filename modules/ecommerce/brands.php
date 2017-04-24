@@ -114,7 +114,7 @@ function addCat(form) {
                   echo "</td><td>";
                   echo $brand;
                   echo "</td><td>";
-                  if ($brand_img == '') {
+                  if ($brand_status == "1" && $brand_img == '') {
                     if($dossier = opendir('../images/brands/')) {
                       echo '<form name="brand"><select name="Liste" onChange="editBrand()">';
                       echo '<option value=""></option>';
