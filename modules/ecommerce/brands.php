@@ -81,13 +81,10 @@ function addCat(form) {
                 echo "<br>";
               }
             }
-          closedir($dossier);  
+          closedir($dossier);
           }
 
-{
-
           ?>
-{
           <table id="example2" class="table table-bordered table-hover">
             <thead>
             <tr>
