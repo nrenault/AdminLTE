@@ -67,25 +67,29 @@ function addCat(form) {
 <section class="content">
   <div class="row">
     <div class="col-xs-6">
+      <?php
+      $sql_brands_img = 'SELECT img from brands';
+      $req_brands_img = mysql_query($sql_brands_img) or die('<br>Erreur SQL !<br>'.$sql_brands_img.'<br>'.mysql_error());
+      while ($brands_img = mysql_fetch_assoc($req_brands_img)) {
+        $imgs = $brands_img['img'];
+      if($dossier = opendir('../images/brands/')) {
+        while(false !== ($fichier = readdir($dossier))) {
+          if($fichier != '.' && $fichier != '..' && $fichier != $imgs && $fichier != 'index.php') {
+            echo '<li><a href="../images/brands/' . $fichier . '">' . $fichier . '</a></li>';
+            //echo $fichier;
+            echo "<br>";
+          }
+        }
+      closedir($dossier);
+      }
+    }
+      ?>
       <div class="box">
         <!-- <div class="box-header">
           <h3 class="box-title">Hover Data Table</h3>
         </div> -->
         <!-- /.box-header -->
         <div class="box-body">
-          <?php
-          if($dossier = opendir('../images/brands/')) {
-            while(false !== ($fichier = readdir($dossier))) {
-              if($fichier != '.' && $fichier != '..' && $fichier != 'index.php') {
-                echo '<li><a href="../images/brands/' . $fichier . '">' . $fichier . '</a></li>';
-                //echo $fichier;
-                echo "<br>";
-              }
-            }
-          closedir($dossier);
-          }
-
-          ?>
           <table id="example2" class="table table-bordered table-hover">
             <thead>
             <tr>
