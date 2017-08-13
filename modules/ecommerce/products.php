@@ -7,7 +7,6 @@
     <li class="active">Categories</li>
   </ol>
 </section>
-
 <!-- Main content -->
 <section class="content">
   <div class="row">
@@ -15,25 +14,34 @@
         <!-- general form elements -->
         <div class="box box-primary">
           <div class="box-header with-border">
-            <h3 class="box-title">Add new product/h3>
+            <h3 class="box-title">Add new product</h3>
           </div>
           <!-- /.box-header -->
           <!-- form start -->
           <form role="form" name="addcat" action ="" method="GET">
             <div class="box-body">
               <div class="form-group">
-                <label for="cat_id">ID</label>
-                <input type="number" class="form-control" id="cat_id" placeholder="Enter Node ID">
+                <label for="product_asin">ASIN</label>
+                <input type="number" class="form-control" id="product_asin" placeholder="Enter Product ASIN">
               </div>
-              <div class="form-group">
+              <!-- <div class="form-group">
                 <label for="cat_name">Name</label>
                 <input type="text" class="form-control" id="cat_name" placeholder="Category Name">
-              </div>
+              </div> -->
               <div class="form-group">
-                <label for="cat_lang">Lang</label>
-                <select id="cat_lang" class="form-control">
-                  <option>fr</option>
-                  <option>en</option>
+                <label for="product_node">Category</label>
+                <select id="product_node" class="form-control">
+                  <?php
+                  $sql_select_nodes = "SELECT * FROM `nodes` where active = '1';";
+                  $req_select_nodes = mysql_query($sql_select_nodes) or die('<br>Erreur SQL !<br>'.$sql_select_nodes.'<br>'.mysql_error());
+                  while ($node = mysql_fetch_assoc($req_select_nodes)) {
+                    $node_id = $node['id'];
+                    $node_name = $website['name'];
+                    echo "<tr><td>";
+                    echo "<option>".$node_name." (".$node_id.")</option>";
+                    echo "</td><td>";
+                    }
+                  ?>
                 </select>
               </div>
               <div class="checkbox">
