@@ -41,7 +41,7 @@ function addProduct(form) {
             <div class="box-body">
               <div class="form-group">
                 <label for="product_asin">ASIN</label>
-                <input type="number" class="form-control" id="product_asin" placeholder="Enter Product ASIN">
+                <input type="text" class="form-control" id="product_asin" placeholder="Enter Product ASIN">
               </div>
               <!-- <div class="form-group">
                 <label for="cat_name">Name</label>
