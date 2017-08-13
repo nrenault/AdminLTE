@@ -36,7 +36,7 @@
                   $req_select_nodes = mysql_query($sql_select_nodes) or die('<br>Erreur SQL !<br>'.$sql_select_nodes.'<br>'.mysql_error());
                   while ($node = mysql_fetch_assoc($req_select_nodes)) {
                     $node_id = $node['id'];
-                    $node_name = $website['name'];
+                    $node_name = $node['name'];
                     echo "<tr><td>";
                     echo "<option>".$node_name." (".$node_id.")</option>";
                     echo "</td><td>";
