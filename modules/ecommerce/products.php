@@ -1,10 +1,29 @@
+<script type="text/javascript">
+function addProduct(form) {
+    //TestVar =form.inputbox.value;
+    asin =form.product_asin.value;
+    //name =form.cat_name.value;
+    node =form.product_node.value;
+    //status =form.cat_status.value;
+    $.ajax(
+    {
+           type: "GET",
+           url: "/admin/modules/add.php?module=product&asin="+asin+"&node="+node+"",
+           success: function()
+           {
+            parent.fadeOut('slow', function() {$(this).remove();});
+           }
+     });
+     setTimeout(function() { location.reload(); }, 3000);
+}
+</script>
 <!-- Content Header (Page header) -->
 <section class="content-header">
-  <h1>Categories</h1><br><div id="successMessage" style="font-size:15px;color:green;font-weight:bold;"></div>
+  <h1>Products</h1><br><div id="successMessage" style="font-size:15px;color:green;font-weight:bold;"></div>
   <ol class="breadcrumb">
     <li><a href="index.php"><i class="fa fa-dashboard"></i> Home</a></li>
     <li><a href="#">E-Commerce</a></li>
-    <li class="active">Categories</li>
+    <li class="active">Products</li>
   </ol>
 </section>
 <!-- Main content -->
@@ -18,7 +37,7 @@
           </div>
           <!-- /.box-header -->
           <!-- form start -->
-          <form role="form" name="addcat" action ="" method="GET">
+          <form role="form" name="addproduct" action ="" method="GET">
             <div class="box-body">
               <div class="form-group">
                 <label for="product_asin">ASIN</label>
@@ -38,22 +57,22 @@
                     $node_id = $node['id'];
                     $node_name = $node['name'];
                     echo "<tr><td>";
-                    echo "<option>".$node_name." (".$node_id.")</option>";
+                    echo "<option value='".$node_id."'>".$node_name." (".$node_id.")</option>";
                     echo "</td><td>";
                     }
                   ?>
                 </select>
               </div>
-              <div class="checkbox">
+              <!-- <div class="checkbox">
                 <label>
                   <input type="checkbox" id="cat_status"> Active Category
                 </label>
-              </div>
+              </div> -->
             </div>
             <!-- /.box-body -->
 
             <div class="box-footer">
-              <button type="button" class="btn btn-primary" onclick="addCat(this.form)">Add Category</button>
+              <button type="button" class="btn btn-primary" onclick="addProduct(this.form)">Add Product</button>
             </div>
           </form>
         </div>
