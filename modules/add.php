@@ -34,6 +34,25 @@ if (isset($_GET['module'])) {
       $sql_add = "insert into $module (name,img,active) values ('$name','','1')";
       $req_add = mysql_query($sql_add) or die('<br>Erreur SQL !<br>'.$sql_add.'<br>'.mysql_error());
     }
+    if ($module == 'product') {
+      $product_asin = $_GET['asin'];
+      $product_node = $_GET['node'];
+      //$title = $_GET['title'];
+      //$url = $_GET['url'];
+      //$lang = $_GET['lang'];
+      //if ($_GET['status'] == "on") {
+        //$status = "1";
+      //} else {
+        //$status = "0";
+      //}
+      if (!empty($product_asin))
+        {
+          $sql_insert_products = "insert into products_fr (ASIN,title,img_url,price,description,node_id,url,groupe) values ('$product_asin','','','','','$product_node','','NewReleases')";
+          $req_insert_products = mysql_query($sql_insert_products) or die('<br>Erreur SQL !<br>'.$sql_insert_products.'<br>'.mysql_error());
+      }
+      //$sql_add = "insert into $module (link_text,link_title,link_url,website_id,lang,active) values ('$text','$title','$url','$website_id','$lang','$status')";
+      //$req_add = mysql_query($sql_add) or die('<br>Erreur SQL !<br>'.$sql_add.'<br>'.mysql_error());
+    }
 }
 
 ?>
